@@ -6,8 +6,6 @@ const MutationRate = 0.4;
 const PopulationSize = 500;
 var NumOfCities = 0;
 var line;
-var geneticTimer = 0;
-var fact = [1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800, 39916800, 479001600, 6227020800, 87178291200, 1307674368000, 20922789888000, 355687428096000, 6402373705728000, 121645100408832000, 2432902008176640000, 51090942171709440000, 1124000727777607680000, 25852016738884976640000, 620448401733239439360000, 15511210043330985984000000, 403291461126605635584000000, 10888869450418352160768000000, 304888344611713860501504000000, 8841761993739701954543616000000, 265252859812191058636308480000000, 8222838654177922817725562880000000, 263130836933693530167218012160000000, 8683317618811886495518194401280000000, 295232799039604140847618609643520000000, 10333147966386144929666651337523200000000, 371993326789901217467999448150835200000000, 13763753091226345046315979581580902400000000, 523022617466601111760007224100074291200000000, 20397882081197443358640281739902897356800000000, 815915283247897734345611269596115894272000000000];
 
 var Population = new Array(PopulationSize);
 for (var i = 0; i < PopulationSize; i++){
@@ -86,9 +84,7 @@ function initMap () {
     var x = document.querySelector('.calculate--btn');
     x.addEventListener('click', function(){
       if (line !== undefined) line.setMap(null);
-      var start = (new Date()).getTime();
       genetic.Calculate();
-      var end = (new Date()).getTime();
       var finalRoute = [];
       for (var i = 0; i < NumOfCities; i++){
         finalRoute[i] = markers[Population[0][i] - 1];
@@ -104,19 +100,6 @@ function initMap () {
       });
       line.setMap(map);
       
-      //Write genetic Performance
-      var total = (end - start) / 1000;
-      document.querySelector('.genetic-box').removeChild(document.querySelector('.load'));
-      document.querySelector('.genetic-box').insertAdjacentHTML('beforeend', `<ion-icon name="checkmark" class="done"></ion-icon><p class="genetic-counter">${total}s</p>`);
-      
-      //Factorial Performance
-      var j = 0;
-      start = (new Date()).getTime();
-      for (var i = 0; i < fact[NumOfCities]; i++) j++;
-      end = (new Date()).getTime();
-      var iterTotal = (end - start) / 1000;
-      document.querySelector('.iteration-box').removeChild(document.querySelector('.load'));
-      document.querySelector('.iteration-box').insertAdjacentHTML('beforeend', `<ion-icon name="checkmark" class="done"></ion-icon><p class="genetic-counter">${iterTotal}s</p>`);
     });
     
     
@@ -184,7 +167,7 @@ var genetic = (function(){
     
     //Calculate distance between 2 markers
     Distance: function(mark1, mark2) {
-      return Math.pow(markers[mark1].location.Va.i - markers[mark2].location.Va.i, 2) + Math.pow((markers[mark1].location.ab.i - markers[mark2].location.ab.i), 2);
+      return Math.pow(markers[mark1].location.Sa.i - markers[mark2].location.Sa.i, 2) + Math.pow((markers[mark1].location.Ya.i - markers[mark2].location.Ya.i), 2);
     },
     
     //Calculate fitness for each population and puts it in cell #FitnessIndex
