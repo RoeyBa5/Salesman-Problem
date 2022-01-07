@@ -15,6 +15,15 @@ var Cities = []; //After RandomArr contains numbers between 1 to NumofCities (no
 var FitnessIndex = NumOfCities;
 
 //Map Controller
+function loadScript() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = "https://maps.googleapis.com/maps/api/js?key=API-KEY&callback=initMap&libraries=places&v=weekly";
+  document.body.appendChild(script);
+}
+
+window.onload = loadScript; 
+
 function initMap () {
   //Map init
   var options = {
@@ -167,7 +176,7 @@ var genetic = (function(){
     
     //Calculate distance between 2 markers
     Distance: function(mark1, mark2) {
-      return Math.pow(markers[mark1].location.Sa.i - markers[mark2].location.Sa.i, 2) + Math.pow((markers[mark1].location.Ya.i - markers[mark2].location.Ya.i), 2);
+      return Math.pow(markers[mark1].location.Ab.g - markers[mark2].location.Ab.g, 2) + Math.pow((markers[mark1].location.Ra.g - markers[mark2].location.Ra.g), 2);
     },
     
     //Calculate fitness for each population and puts it in cell #FitnessIndex
