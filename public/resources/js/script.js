@@ -18,7 +18,7 @@ var FitnessIndex = NumOfCities;
 function loadScript() {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAOPnSwKFJHUT-S92tLh8A7amRnV9Z-1xI&callback=initMap&libraries=places&v=weekly";
+  script.src = "https://maps.googleapis.com/maps/api/js?key=API-KEY=initMap&libraries=places&v=weekly";
   document.body.appendChild(script);
 }
 
