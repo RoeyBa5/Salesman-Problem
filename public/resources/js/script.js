@@ -19,7 +19,7 @@ function loadScript() {
   var script = document.createElement("script");
   script.type = "text/javascript";
   script.src =
-    "https://maps.googleapis.com/maps/api/js?key=AIzaSyDn05ES6o7SZuAIYTsXVgpLad8j3UAYD8E&callback=initMap&libraries=places&v=weekly";
+    "https://maps.googleapis.com/maps/api/js?key={API_KEY}&callback=initMap&libraries=places&v=weekly";
   document.body.appendChild(script);
 }
 
