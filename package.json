@@ -1,0 +1,22 @@
+{
+  "name": "salesman-problem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoeyBa5/Salesman-Problem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RoeyBa5/Salesman-Problem/issues"
+  },
+  "homepage": "https://github.com/RoeyBa5/Salesman-Problem#readme",
+  "dependencies": {
+    "dotenv": "^12.0.3"
+  }
+}
